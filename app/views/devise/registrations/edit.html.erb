@@ -58,10 +58,8 @@
               <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
             </div>
 
-            <div class="nav">
-              <%= f.submit  t('.update', :default => "Update"), class: "btn btn-lg btn-primary" %>
-              <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-lg btn-outline-danger", role: "button" %>
-            </div>
+            <%= f.submit  t('.update', :default => "Update"), class: "btn btn-lg btn-primary" %>
+            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-lg btn-danger float-right" %>
         <%end%>
       </div>
     </div>
