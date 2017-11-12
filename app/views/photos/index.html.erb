@@ -26,7 +26,8 @@
   </tbody>
 </table>
 
-<%= will_paginate @photos %>
+<%= will_paginate(@photos, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
+
 
 <br>
 

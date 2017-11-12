@@ -60,7 +60,7 @@
 
             <div class="nav">
               <%= f.submit  t('.update', :default => "Update"), class: "btn btn-lg btn-primary" %>
-              <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-lg btn-danger" %>
+              <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-lg btn-outline-danger", role: "button" %>
             </div>
         <%end%>
       </div>

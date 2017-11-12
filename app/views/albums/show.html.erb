@@ -1,18 +1,13 @@
 
 <div class="container">
 
-  <h1><%= @album.name %></h1>
+  <h1><%= @album.name %>
+    <span class="badge badge-<%= ("secondary" if @album.public == false) || "success" %>">
+      <span class="glyphicon <%= ("glyphicon-minus-sign" if @album.public == false) || "glyphicon-globe" %>"></span> <%= ("Privado" if @album.public == false ) || "Público" %>
+    </span>
+  </h1>
 
-  <button type="button" class="btn btn-default btn-lg">
-    <span class="glyphicon <%= ("glyphicon-minus-sign" if @album.public == false) || "glyphicon-globe" %>"></span> <%= ("privado" if @album.public == false ) || "público" %>
-  </button>
-      
-  <h2>Photos</h2>
-
-
-  <%= will_paginate @photos %>
-
-
+  <%= will_paginate(@photos, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center pagination-lg responsive',  :previous_label => "&#8249; Anterior", :next_label => "Siguente &#8250;") %>
 
   <div class="row">
       <% @photos.each do |photo| %>
@@ -21,7 +16,7 @@
         <div class="col-md-4">
           <div class="thumbnail">
             <%= link_to photo, data: { title: photo.name}  do %>
-              <%= image_tag photo.image.thumb.url, alt: photo.name, :class=>"img-rounded" %>
+              <%= image_tag photo.image.thumb.url, alt: photo.name, :class=>"img-rounded img-responsive img-fluid" %>
               <div class="caption">
                 <p><%= photo.name %></p>
               </div>
