@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 #  rescue Exception => e
 #    puts "ActiveAdmin: #{e.class}: #{e}"
 #  end
+
   root to: "home#index"
 
 end
