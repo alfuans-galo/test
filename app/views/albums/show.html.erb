@@ -7,6 +7,8 @@
     </span>
   </h1>
 
+  <%= render "albums/links" %>
+
   <%= will_paginate(@photos, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center pagination-lg responsive',  :previous_label => "&#8249; Anterior", :next_label => "Siguente &#8250;") %>
 
   <div class="row">
