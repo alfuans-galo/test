@@ -22,7 +22,7 @@ production:
 
 development:
   <<: *default
-  host:     <%= ENV['DBHOST'] || localhost %>
+  host:     <%= ENV['DBHOST'] || "localhost" %>
   database: <%= ENV['DBNAME_DEV'] %>
 
 test:
