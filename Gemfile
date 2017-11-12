@@ -46,6 +46,7 @@ gem 'file_validators'
 
 # Pagination
 gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Sharing pictures
 gem 'social-share-button'
