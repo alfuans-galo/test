@@ -14,7 +14,7 @@
  *= require_self
  *= require 'bootstrap'
  *= require 'bootstrap-glyphicons'
- *= require social-share-button
+ *= require font-awesome
  */
  
 @import "bootstrap-sprockets"

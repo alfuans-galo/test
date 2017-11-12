@@ -9,43 +9,36 @@
 
   <%= render "albums/links" %>
 
-  <%= will_paginate(@photos, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center pagination-lg responsive',  :previous_label => "&#8249; Anterior", :next_label => "Siguente &#8250;") %>
+  <%= will_paginate(@photos, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center pagination-lg responsive',  :previous_label => "&#8249;", :next_label => "&#8250;") %>
 
-  <div class="row">
-      <% @photos.each do |photo| %>
-      
+        <div class="row">
+          <% @photos.each do |photo| %>
+          
+            <div class="col-sm-4 col-md-6 col-lg-4">
+              <div class="card-body">
+                <h4 class="card-title"><%= photo.name %></h4>
 
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <%= link_to photo, data: { title: photo.name}  do %>
-              <%= image_tag photo.image.thumb.url, alt: photo.name, :class=>"img-rounded img-responsive img-fluid" %>
-              <div class="caption">
-                <p><%= photo.name %></p>
+                <%= link_to 'Editar', edit_photo_path(photo), class: "btn btn-primary" %>
+
+  
+                <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{photo_url(photo)}",  title: 'Compartir en Facebook', :class=>"btn btn-outline-primary btn-social btn-facebook" do %>
+                  <span class="btn-facebook fa fa-facebook"></span>
+                <% end %>
+
+                <%= link_to "https://twitter.com/share?url=#{photo_url(photo)}",  title: 'Compartir en Twitter', :class=>"btn btn-outline-primary btn-social-icon btn-twitter" do %>
+                  <span class="btn-facebook fa fa-twitter"></span>
+                <% end %>
+                
+                <%= link_to "https://twitter.com/share?url=#{photo_url(photo)}",  title: 'Compartir en Twitter', :class=>"btn btn-outline-primary btn-social-icon btn-linkedin" do %>
+                  <span class="btn-facebook fa fa-linkedin"></span>
+                <% end %>
+                
               </div>
-            <%end%>
+              <%= link_to image_tag(photo.image.thumb.url, alt: photo.name, :class=>"card-img-top img-thumbnail"), photo %>
+            </div>
 
-            <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{photo_url(photo)}",  title: 'Compartir en Facebook', :class=>"btn btn-lg btn-social btn-facebook" do %>
-              <span class="btn-facebook"></span> Compartir en Facebook
-            <% end %>
-
-            <%= link_to "https://twitter.com/share?url=#{photo_url(photo)}",  title: 'Compartir en Twitter', :class=>"btn btn-lg btn-social btn-twitter" do %>
-              <span class="btn-facebook"></span> Compartir en Twitter
-            <% end %>
-
-            <%= link_to 'Edit', edit_photo_path(photo) %>
-            <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
+          <% end %>
         </div>
 
-      <% end %>
-  </div>
-      
 
-  <br>
-
-
-  <%= link_to 'New Photo', new_photo_path %>
-
-  <%= link_to 'Edit', edit_album_path(@album) %> |
-  <%= link_to 'Back', albums_path %>
 </div>

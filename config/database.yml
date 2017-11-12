@@ -10,11 +10,10 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  host:     <%= ENV['DBHOST'] || localhost %>
-  username: <%= ENV['DBUSER'] || "root" %>
+  username: <%= ENV['DBUSER'] || "" %>
   password: <%= ENV['DBPASS'] || "" %>
 
 production:
@@ -23,8 +22,10 @@ production:
 
 development:
   <<: *default
+  host:     <%= ENV['DBHOST'] || localhost %>
   database: <%= ENV['DBNAME_DEV'] %>
 
 test:
   <<: *default
+  host:     <%= ENV['DBHOST'] || "localhost" %>
   database: <%= ENV['DBNAME_TEST'] %>

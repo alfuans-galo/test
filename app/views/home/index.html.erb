@@ -8,10 +8,22 @@
           <div class="card-body">
             <h4 class="card-title"><%= current_user.name %> <%= current_user.surname %></h4>
             <p class="card-text">Some example text.</p>
-            <%= link_to 'Editar', edit_user_registration_path(current_user), class: "btn btn-lg btn-primary" %>
+            <%= link_to 'Editar perfil', edit_user_registration_path(current_user), class: "btn btn-lg btn-primary" %>
 
-            <% ruta = (albums_path if current_user.albums.count != 1) || current_user.albums.first %>
-            <%= link_to 'albums', ruta, class:'btn btn-lg btn-outline-primary' %>
+            <% ruta = (albums_path if !current_user || current_user.albums.count != 1) || current_user.albums.first %>
+            <div class="btn-group">
+              <%= link_to 'albumes', ruta, class:'btn btn-lg btn-info' %>
+              <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <div class="dropdown-menu">
+                <% current_user.albums.each do |alb| %>
+                  <%= link_to alb.name, alb, class: "dropdown-item"  %>
+                <% end %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Nuevo album", new_album_path, class: "dropdown-item"  %>
+              </div>
+            </div>
 
             <%= link_to 'Log Out', eval("destroy_#{current_user.type.downcase}_session_path"), method: :delete, class: "btn btn-lg btn-warning float-right" %>
           </div>

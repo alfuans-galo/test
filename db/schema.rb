@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20171111163440) do
 
-  create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
     t.string   "name"
     t.string   "user_id"
     t.boolean  "public",     default: false
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20171111163440) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "patrons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "patrons", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 20171111163440) do
     t.index ["reset_password_token"], name: "index_patrons_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "photos", force: :cascade do |t|
     t.string   "name"
     t.string   "image"
     t.string   "album_id"

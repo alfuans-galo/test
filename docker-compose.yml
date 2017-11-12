@@ -2,14 +2,15 @@ version: '3'
 services:
   dbs:
     hostname: retoapp_dbs
-    image: mysql
+    image: postgres
     env_file: .env
     environment:
-      - MYSQL_ROOT_PASSWORD=${DBPASS}
+      - POSTGRES_USER=${DBUSER}
+      - POSTGRES_PASSWORD=${DBPASS}
     volumes:
-      - retoapp-dbs-data:/var/lib/mysql
+      - ./dbs-data:/var/lib/postgresql/data
     ports:
-      - "3306:3306"
+      - "5432:5432"
 
   web:
     hostname: retoapp_web
@@ -23,5 +24,5 @@ services:
     depends_on:
       - dbs
 
-volumes:
-  retoapp-dbs-data: {}
+# volumes:
+#   retoapp-dbs-data: {}

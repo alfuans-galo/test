@@ -33,7 +33,7 @@
   <div class="field">
     <%= f.label :album_id %>
     <%=
-    f.select(:album_id, current_user.albums.sort{|x,y| x.entity.name <=> y.entity.name}.collect{|a| ["#{a.name}", a.id]})
+    f.select(:album_id, current_user.albums.collect{|a| ["#{a.name}", a.id]})
     %>
     
   </div>

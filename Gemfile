@@ -49,7 +49,8 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
 # Sharing pictures
-gem 'social-share-button'
+#gem 'social-share-button'
+gem "font-awesome-rails"
 
 
 group :development, :test do
@@ -58,9 +59,6 @@ group :development, :test do
 
   # Preview email in the default browser instead of sending it
   gem 'letter_opener'
-
-  # Use mysql as the database for Active Record
-  gem 'mysql2', '>= 0.3.18', '< 0.5'
 end
 
 group :development do
