@@ -1,4 +1,9 @@
-# silverspoon
+# Album de fotos
+
+Aplcación en Ruby on Rails.
+Acceso como usuario. Registro, login... (No se verifica mediante correo)
+Album de fotos perteneciente a los usuarios.
+Subida de imagenes
 
 silverspoon is for the developers who wants to start Rails5 app. With the very basic requirements likes devise, admin panel, bootstrap4 and many more. It provides the basic integration of gems which is essential to starts the development of an application.
 like:- Devise authentication, Bootstrap4, active admin, exception notifier, letter opener, meta request, invite the users from admin panel.
