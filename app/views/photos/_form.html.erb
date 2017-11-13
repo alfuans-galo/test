@@ -1,24 +1,8 @@
 <%= form_for(photo) do |f| %>
-  <% if photo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
-
-      <ul>
-      <% photo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= devise_bootstrap_error_messages! %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :publico %>
-    <%= f.check_box :public %>
   </div>
 
   <div class="field">
@@ -30,7 +14,7 @@
     <% end %>    
   </div>
 
-  <div class="field">
+  <div class="field" style="display:none">
     <%= f.label :album_id %>
     <%=
     f.select(:album_id, current_user.albums.collect{|a| ["#{a.name}", a.id]})
@@ -38,7 +22,9 @@
     
   </div>
 
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  t('.update', :default => "Actualizar"), class: "btn btn-lg btn-primary" %>
   </div>
+
 <% end %>

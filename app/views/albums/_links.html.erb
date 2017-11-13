@@ -9,7 +9,7 @@
     </li>
 
     <li class="nav-item" style="margin-right:5px; margin-bottom:4px;">
-      <%= link_to 'Añadir foto', new_photo_path, class:'btn btn-lg btn-info' %>
+      <%= link_to 'Añadir foto', new_photo_path(:album_id => @album.id), class:'btn btn-lg btn-info' %>
     </li>
     
     <li class="nav-item" style="margin-right:5px; margin-bottom:4px;">
