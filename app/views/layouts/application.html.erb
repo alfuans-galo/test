@@ -53,14 +53,13 @@
                     </div>
                   <% end %>
                 </div>
-                
               </li>
-            </ul>
-            <ul class="navbar-nav">
-              <% ruta = (root_path if !current_user) || eval("destroy_#{current_user.type.downcase}_session_path") %>
-              <% label = ("Log in" if !current_user) || "Log out" %>
-              <% met = (:get if !current_user) || :delete %>
-              <%= button_to label, ruta, method: met, class:'btn btn-lg btn-warning navbar-btn' %>
+              <li class="nav-item" style="margin-right:5px; margin-bottom:4px;">
+                <% ruta = (root_path if !current_user) || eval("destroy_#{current_user.type.downcase}_session_path") %>
+                <% label = ("Log in" if !current_user) || "Log out" %>
+                <% met = (:get if !current_user) || :delete %>
+                <%= button_to label, ruta, method: met, class:'btn btn-lg btn-warning navbar-btn' %>
+              </li>
             </ul>
           </div>
       </nav>
